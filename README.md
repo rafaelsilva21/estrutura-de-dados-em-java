@@ -1,6 +1,6 @@
-#Estrutura de Dados
-##Biblioteca para estrutura de dados em java!
+# Estrutura de Dados
+## Biblioteca para estrutura de dados em java!
 
-###Implementadas:
+### Implementadas:
 -Pilha
 -Lista
