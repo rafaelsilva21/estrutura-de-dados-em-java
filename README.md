@@ -3,4 +3,5 @@
 
 ### Implementadas:
 - Pilha
-- Lista
+- Fila
+- Lista Encadeada
