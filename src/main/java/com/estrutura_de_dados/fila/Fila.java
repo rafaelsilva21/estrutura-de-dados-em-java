@@ -10,23 +10,24 @@ public class Fila<T> {
         this.nodoFinal = null;
     }
 
-    public void enqueue(Nodo<T> novoNodo){
-        novoNodo.setNextNodo(this.nodoFinal);
-        this.nodoFinal = novoNodo;
+    public void enqueue(T novoDado){
+        Nodo<T> nodoAux = new Nodo<>(novoDado);
+        nodoAux.setNextNodo(this.nodoFinal);
+        this.nodoFinal = nodoAux;
     }
 
-    public Nodo<T> first() {
+    public T first() {
         if (!this.isEmpty()){
             Nodo<T> nodoAux = this.nodoFinal;
             while (nodoAux.getNextNodo() != null) {
                 nodoAux = nodoAux.getNextNodo();
             }
-            return nodoAux;
+            return nodoAux.getDado();
         }
         return null;
     }
 
-    public Nodo<T> dequeue() {
+    public T dequeue() {
         if (!this.isEmpty()){
             Nodo<T> nodoAux = this.nodoFinal;
             Nodo<T> nodoAnterior = null;
@@ -36,7 +37,7 @@ public class Fila<T> {
             }
             if (nodoAnterior == null) this.nodoFinal = null;
             else nodoAnterior.setNextNodo(null);
-            return nodoAux;
+            return nodoAux.getDado();
         }
         return null;
     }

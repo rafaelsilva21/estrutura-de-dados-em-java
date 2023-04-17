@@ -10,26 +10,23 @@ public class Pilha<T> {
         this.topo = null;
     }
 
-    public Pilha(Nodo<T> topo) {
-        this.topo = topo;
+    public T top(){
+        return this.topo.getDado();
     }
 
-    public Nodo<T> top(){
-        return this.topo;
-    }
-
-    public Nodo<T> pop(){
+    public T pop(){
         if (!isEmpty()) {
             Nodo<T> nodoAux = this.topo;
             this.topo = this.topo.getNextNodo();
-            return nodoAux;
+            return nodoAux.getDado();
         }
         return null;
     }
 
-    public void push(Nodo<T> novoNodo) {
-        novoNodo.setNextNodo(this.topo);
-        this.topo = novoNodo;
+    public void push(T novoDado) {
+        Nodo<T> nodoAux = new Nodo<>(novoDado);
+        nodoAux.setNextNodo(this.topo);
+        this.topo = nodoAux;
     }
 
     public boolean isEmpty() {
