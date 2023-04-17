@@ -1,7 +1,5 @@
 package com.estrutura_de_dados.pilha;
 
-import com.estrutura_de_dados.Nodo;
-
 public class Main {
     public static void main(String[] args) {
 

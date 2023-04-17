@@ -1,64 +1,64 @@
 package com.estrutura_de_dados.fila;
 
-import com.estrutura_de_dados.Nodo;
+import com.estrutura_de_dados.Node;
 
 public class Fila<T> {
 
-    private Nodo<T> nodoFinal;
+    private Node<T> finalNode;
 
     public Fila(){
-        this.nodoFinal = null;
+        this.finalNode = null;
     }
 
     public void enqueue(T novoDado){
-        Nodo<T> nodoAux = new Nodo<>(novoDado);
-        nodoAux.setNextNodo(this.nodoFinal);
-        this.nodoFinal = nodoAux;
+        Node<T> auxNode = new Node<>(novoDado);
+        auxNode.setNextNode(this.finalNode);
+        this.finalNode = auxNode;
     }
 
     public T first() {
         if (!this.isEmpty()){
-            Nodo<T> nodoAux = this.nodoFinal;
-            while (nodoAux.getNextNodo() != null) {
-                nodoAux = nodoAux.getNextNodo();
+            Node<T> auxNode = this.finalNode;
+            while (auxNode.getNextNode() != null) {
+                auxNode = auxNode.getNextNode();
             }
-            return nodoAux.getDado();
+            return auxNode.getDado();
         }
         return null;
     }
 
     public T dequeue() {
         if (!this.isEmpty()){
-            Nodo<T> nodoAux = this.nodoFinal;
-            Nodo<T> nodoAnterior = null;
-            while (nodoAux.getNextNodo() != null) {
-                nodoAnterior = nodoAux;
-                nodoAux = nodoAux.getNextNodo();
+            Node<T> auxNode = this.finalNode;
+            Node<T> nodoAnterior = null;
+            while (auxNode.getNextNode() != null) {
+                nodoAnterior = auxNode;
+                auxNode = auxNode.getNextNode();
             }
-            if (nodoAnterior == null) this.nodoFinal = null;
-            else nodoAnterior.setNextNodo(null);
-            return nodoAux.getDado();
+            if (nodoAnterior == null) this.finalNode = null;
+            else nodoAnterior.setNextNode(null);
+            return auxNode.getDado();
         }
         return null;
     }
 
     public boolean isEmpty(){
-        return nodoFinal == null;
+        return this.finalNode == null;
     }
 
     @Override
     public String toString() {
-        String stringReturn = "---------------\n";
-        stringReturn += "     Fila\n";
-        stringReturn += "---------------\n";
+        String strReturn = "---------------\n";
+        strReturn += "     Fila\n";
+        strReturn += "---------------\n";
 
-        Nodo<T> nodoAux = this.nodoFinal;
+        Node<T> auxNode = this.finalNode;
 
-        while (nodoAux != null) {
-            stringReturn += nodoAux.toString()+"--->";
-            nodoAux = nodoAux.getNextNodo();
+        while (auxNode != null) {
+            strReturn += auxNode.toString()+"--->";
+            auxNode = auxNode.getNextNode();
         }
-        stringReturn += "null\n===============\n";
-        return stringReturn;
+        strReturn += "null\n===============\n";
+        return strReturn;
     }
 }

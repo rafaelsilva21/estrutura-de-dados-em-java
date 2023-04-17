@@ -1,6 +1,6 @@
 package com.estrutura_de_dados.fila;
 
-import com.estrutura_de_dados.Nodo;
+import com.estrutura_de_dados.Node;
 
 public class Main {
     public static void main(String[] args) {

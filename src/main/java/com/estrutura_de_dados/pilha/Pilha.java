@@ -1,10 +1,10 @@
 package com.estrutura_de_dados.pilha;
 
-import com.estrutura_de_dados.Nodo;
+import com.estrutura_de_dados.Node;
 
 public class Pilha<T> {
 
-    private Nodo<T> topo;
+    private Node<T> topo;
 
     public Pilha() {
         this.topo = null;
@@ -16,17 +16,17 @@ public class Pilha<T> {
 
     public T pop(){
         if (!isEmpty()) {
-            Nodo<T> nodoAux = this.topo;
-            this.topo = this.topo.getNextNodo();
-            return nodoAux.getDado();
+            Node<T> auxNode = this.topo;
+            this.topo = this.topo.getNextNode();
+            return auxNode.getDado();
         }
         return null;
     }
 
     public void push(T novoDado) {
-        Nodo<T> nodoAux = new Nodo<>(novoDado);
-        nodoAux.setNextNodo(this.topo);
-        this.topo = nodoAux;
+        Node<T> auxNode = new Node<>(novoDado);
+        auxNode.setNextNode(this.topo);
+        this.topo = auxNode;
     }
 
     public boolean isEmpty() {
@@ -35,18 +35,18 @@ public class Pilha<T> {
 
     @Override
     public String toString() {
-        String stringReturn = "---------------\n";
-        stringReturn += "     Pilha\n";
-        stringReturn += "---------------\n";
+        String strReturn = "---------------\n";
+        strReturn += "     Pilha\n";
+        strReturn += "---------------\n";
 
-        Nodo<T> nodoAux = this.topo;
+        Node<T> auxNode = this.topo;
 
-        while (nodoAux != null) {
-                stringReturn += nodoAux.toString()+"\n";
-                nodoAux = nodoAux.getNextNodo();
+        while (auxNode != null) {
+            strReturn += auxNode.toString()+"\n";
+            auxNode = auxNode.getNextNode();
         }
 
-        stringReturn += "===============\n";
-        return stringReturn;
+        strReturn += "===============\n";
+        return strReturn;
     }
 }
